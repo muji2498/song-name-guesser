@@ -16,9 +16,8 @@ score = 0
 
 def song_gen():
     remove_lower = lambda text: re.sub('[a-z]', '- ', text)
-    filename = 'name_SongArtist.txt'
     line_number = random.randint(1, 32)
-    with open(filename, 'r') as filehandle:
+    with open('name_SongArtist.txt', 'r') as filehandle:
         current_line = 1
         for line in filehandle:
             if current_line == line_number:
@@ -50,8 +49,7 @@ def song_gen():
             message = "HAHAHA Run Again!!", username2, "Your Score Is ", str(score), "Well Done!"
             message = str(message)
             ctypes.windll.user32.MessageBoxW(0, str(message), 0)
-            scorename = 'ScoreName.txt'
-            with open(scorename, 'a') as f:
+            with open('ScoreName.txt', 'a') as f:
                 splitline = ';'
                 write_1 = username2 + ':' + str(score) + splitline
                 f.write(write_1)
