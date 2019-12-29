@@ -36,14 +36,15 @@ def song_gen():
     if guess == songtitle:
         score = score + 3
         text_field1 = username2, "Your Current Score Is", str(score), "Well Done!"
-        ctypes.windll.user32.MessageBoxW(0, str(text_field1), 1)
+        text_field1 = str(text_field1)
+        ctypes.windll.user32.MessageBoxW(0, text_field1, 0)
         song_gen()
     else:
         guess1 = easygui.enterbox(qlue, "\nWRONG!!! Please Re-Enter The Song Name")
         if guess1 == songtitle:
             score = score + 1
             text_field2 = username2, "Your Current Score Is", str(score), "Well Done!"
-            ctypes.windll.user32.MessageBoxW(0, str(text_field2), 1)
+            ctypes.windll.user32.MessageBoxW(0, str(text_field2), 0)
             song_gen()
         else:
             message = "HAHAHA Run Again!!", username2, "Your Score Is ", str(score), "Well Done!"
@@ -70,7 +71,7 @@ def highscore():
     # scores = []
     # for x in scores_main:
     #     scores = scores.append(x)
-    ctypes.windll.user32.MessageBoxW(0, lst_to_str(scores_main), 0x00000000)
+    ctypes.windll.user32.MessageBoxW(0, lst_to_str(scores_main), 0)
 
 
 decision = easygui.enterbox("What would you like to run?\nRun HighScore = 1\nRun Game = 2")
@@ -83,9 +84,9 @@ if decision == 2:
     username2 = easygui.enterbox("Please Re-Enter Your Name\n")
     if username1 == username2:
         welcome_message = "Welcome To The Game", username2
-        ctypes.windll.user32.MessageBoxW(0, str(welcome_message), 1)
+        ctypes.windll.user32.MessageBoxW(0, str(welcome_message), 0)
         song_gen()
     else:
-        ctypes.windll.user32.MessageBoxW(0, "Please Run The Program Again", 1)
-        exit()
-    song_gen()
+        ctypes.windll.user32.MessageBoxW(0, "Please Run The Program Again", 0)
+        # exit()
+        # song_gen()
