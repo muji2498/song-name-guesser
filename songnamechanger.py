@@ -37,19 +37,19 @@ def song_gen():
     if guess == songtitle:
         score = score + 3
         text_field1 = username2, "Your Current Score Is", str(score), "Well Done!"
-        ctypes.windll.user32.MessageBoxW(0, text_field1, 1)
+        ctypes.windll.user32.MessageBoxW(0, str(text_field1), 1)
         song_gen()
     else:
         guess1 = easygui.enterbox(qlue, "\nWRONG!!! Please Re-Enter The Song Name")
         if guess1 == songtitle:
             score = score + 1
             text_field2 = username2, "Your Current Score Is", str(score), "Well Done!"
-            ctypes.windll.user32.MessageBoxW(0, text_field2, 1)
+            ctypes.windll.user32.MessageBoxW(0, str(text_field2), 1)
             song_gen()
         else:
             message = "HAHAHA Run Again!!", username2, "Your Score Is ", str(score), "Well Done!"
             message = str(message)
-            ctypes.windll.user32.MessageBoxW(0, message, 0)
+            ctypes.windll.user32.MessageBoxW(0, str(message), 0)
             scorename = 'ScoreName.txt'
             with open(scorename, 'a') as f:
                 splitline = ';'
