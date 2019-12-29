@@ -58,10 +58,11 @@ def song_gen():
 
 def highscore():
     scores_main = open("ScoreName.txt", "r").read().split(";")
-    scores = []
-    for x in scores_main:
-        scores = scores.append(x)
-        ctypes.windll.user32.MessageBoxW(0, x, 1)
+    print(scores_main)
+    # scores = []
+    # for x in scores_main:
+    #     scores = scores.append(x)
+    # ctypes.windll.user32.MessageBoxW(0, scores_main, 1)
 
 
 decision = easygui.enterbox("What would you like to run?\nRun HighScore = 1\nRun Game = 2")
