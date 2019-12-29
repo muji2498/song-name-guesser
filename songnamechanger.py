@@ -28,7 +28,6 @@ def song_gen():
                 artist = fields[1]
                 uppercase = songtitle1
                 qlue = uppercase + ' by ' + artist
-                # print(uppercase + ' by ' + artist)
                 break
             current_line += 1
 
@@ -67,9 +66,7 @@ def lst_to_str(scores_main):
 
 
 def highscore():
-    scores_main = open("ScoreName.txt", "r")
-    # .read().split(";")
-    # print(scores_main)
+    scores_main = open("ScoreName.txt", "r")#.read().split(";")
     # scores = []
     # for x in scores_main:
     #     scores = scores.append(x)
@@ -78,7 +75,6 @@ def highscore():
 
 decision = easygui.enterbox("What would you like to run?\nRun HighScore = 1\nRun Game = 2")
 decision = int(decision)
-# decision = int(input("What Would You Like To Do?\nRun HighScore = 1\nRun Game = 2\n"))
 
 if decision == 1:
     highscore()
