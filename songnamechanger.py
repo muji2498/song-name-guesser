@@ -59,13 +59,21 @@ def song_gen():
             exit()
 
 
+def lst_to_str(scores_main):
+    str1 = ""
+    for ele in scores_main:
+        str1 += ele
+    return str1
+
+
 def highscore():
-    scores_main = open("ScoreName.txt", "r").read().split(";")
-    print(scores_main)
+    scores_main = open("ScoreName.txt", "r")
+    # .read().split(";")
+    # print(scores_main)
     # scores = []
     # for x in scores_main:
     #     scores = scores.append(x)
-    # ctypes.windll.user32.MessageBoxW(0, scores_main, 1)
+    ctypes.windll.user32.MessageBoxW(0, lst_to_str(scores_main), 0x00000000)
 
 
 decision = easygui.enterbox("What would you like to run?\nRun HighScore = 1\nRun Game = 2")
