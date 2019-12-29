@@ -15,7 +15,7 @@ score = 0
 
 
 def song_gen():
-    remove_lower = lambda text: re.sub('[a-z]', '-', text)
+    remove_lower = lambda text: re.sub('[a-z]', '- ', text)
     filename = 'name_SongArtist.txt'
     line_number = random.randint(1, 32)
     with open(filename, 'r') as filehandle:
@@ -27,21 +27,24 @@ def song_gen():
                 songtitle1 = remove_lower(songtitle)
                 artist = fields[1]
                 uppercase = songtitle1
-                print(uppercase + ' by ' + artist)
+                qlue = uppercase + ' by ' + artist
+                # print(uppercase + ' by ' + artist)
                 break
             current_line += 1
 
     global score
-    guess = input("Please Enter The Song Name\n")
+    guess = easygui.enterbox(qlue, "\nPlease Enter The Song Name")
     if guess == songtitle:
         score = score + 3
-        print(username2, "Your Current Score Is", str(score), "Well Done!")
+        text_field1 = username2, "Your Current Score Is", str(score), "Well Done!"
+        ctypes.windll.user32.MessageBoxW(0, text_field1, 1)
         song_gen()
     else:
-        guess1 = input("WRONG!!! Please Re-Enter The Song Name\n")
+        guess1 = easygui.enterbox(qlue, "\nWRONG!!! Please Re-Enter The Song Name")
         if guess1 == songtitle:
             score = score + 1
-            print(username2, "Your Current Score Is", str(score), "Well Done!")
+            text_field2 = username2, "Your Current Score Is", str(score), "Well Done!"
+            ctypes.windll.user32.MessageBoxW(0, text_field2, 1)
             song_gen()
         else:
             message = "HAHAHA Run Again!!", username2, "Your Score Is ", str(score), "Well Done!"
@@ -72,12 +75,13 @@ decision = int(decision)
 if decision == 1:
     highscore()
 if decision == 2:
-    username1 = input("Please Enter Your Name\n")
-    username2 = input("Please Re-Enter Your Name\n")
+    username1 = easygui.enterbox("Please Enter Your Name\n")
+    username2 = easygui.enterbox("Please Re-Enter Your Name\n")
     if username1 == username2:
-        print("Welcome To The Game", username2)
+        welcome_message = "Welcome To The Game", username2
+        ctypes.windll.user32.MessageBoxW(0, str(welcome_message), 1)
         song_gen()
     else:
-        print("Please Run The Program Again")
+        ctypes.windll.user32.MessageBoxW(0, "Please Run The Program Again", 1)
         exit()
     song_gen()
